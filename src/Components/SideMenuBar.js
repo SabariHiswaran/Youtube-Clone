@@ -1,8 +1,17 @@
 import React from 'react'
+import MainMenu from './MainMenu'
+import SubMenu from './SubMenu'
+import SubscriptionMenu from './SubscriptionMenu'
 
 const SideMenuBar = () => {
   return (
-    <div>SideMenuBar</div>
+    <div className='flex flex-col w-52 p-5'>
+        <MainMenu/>
+        <hr/>
+        <SubMenu/>
+        <hr/>
+        <SubscriptionMenu/>
+    </div>
   )
 }
 

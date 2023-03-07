@@ -4,10 +4,10 @@ import Videos from './Videos'
 
 const Body = () => {
   return (
-   <>
+   <div className='flex'>
 <SideMenuBar/>
 <Videos/>
-   </>
+   </div>
   )
 }
 

@@ -13,7 +13,7 @@ const Header = () => {
                 <img
                     src={hamburger}
                     alt="Menu-btn"
-                    className='h-10'
+                    className='h-6 ml-5'
                 />
 
                 <img
@@ -40,9 +40,10 @@ const Header = () => {
             </div>
 
             <div className='flex items-center p-5'>
-                <img src='https://cdn-icons-png.flaticon.com/512/24/24990.png' alt="add-video" className='h-7 mr-2' />
+                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGtB6Mbi5pmn_6KGAGivVnAGRYw8lJIL_fU87hsY&s' 
+                alt="add-video" className='h-8 mr-6 pt-1' />
 
-                <img src={notification} alt="notification-icon" className='h-6 mr-2' />
+                <img src={notification} alt="notification-icon" className='h-6 mr-3' />
 
                 <img src={profileicon} alt="profile-icon" className='h-14' />
             </div>
