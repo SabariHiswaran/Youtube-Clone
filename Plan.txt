@@ -1,0 +1,8 @@
+  Header 
+  side-menu-bar    Body 
+                        Videomenu
+                        VideosContainer 
+                        VideoDetails
+
+                        
+
