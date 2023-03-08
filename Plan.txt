@@ -1,6 +1,7 @@
   Header 
   side-menu-bar    Body 
                         Videomenu
+                        bannerad
                         VideosContainer 
                         VideoDetails
 

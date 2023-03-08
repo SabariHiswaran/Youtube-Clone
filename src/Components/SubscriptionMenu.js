@@ -63,9 +63,11 @@ const SubscriptionMenu = () => {
             />
           </span>
           <span className='flex ml-3 w-36 text-[14px]'>90s Gamer </span>
-          <span className='flex justify-center w-8 text-red-500'> <CiStreamOn />  </span>
+          {/* <span className='flex justify-center w-8 text-red-500'> <CiStreamOn />  </span> */}
 
         </li>
+
+
 
 
       </ul>

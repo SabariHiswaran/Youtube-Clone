@@ -1,10 +1,21 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 import hamburger from "../Images/hamburger-menu.png"
 import notification from "../Images/notification.png"
 import profileicon from "../Images/profileicon.png"
+import { menuReducer } from '../Utils/menuSlice'
+
+
 
 const Header = () => {
+
+    const dispatch = useDispatch()
+
+    const handleMenuClick = () => {
+        dispatch(menuReducer())
+    }
+
     return (
         <div className='flex h-20 justify-between'>
 
@@ -13,7 +24,8 @@ const Header = () => {
                 <img
                     src={hamburger}
                     alt="Menu-btn"
-                    className='h-6 ml-5'
+                    className='h-6 ml-5 hover:cursor-pointer'
+                    onClick={handleMenuClick}
                 />
 
                 <img
