@@ -8,14 +8,57 @@ import {RiArrowDropDownLine} from "react-icons/ri"
 const SubMenu=() => {
     return (
         <div> 
+
+        <ul className='flex flex-col justify-between h-60'>
+
+            <li  className='flex items-center mt-5'> 
+
+            <span className='flex justify-start w-12'> <MdOutlineVideoLibrary/></span> 
+            <span className='flex justify-start w-40'> Library </span>
+
+            </li>
+
             
-        <ul>
-            <li  className='flex items-center'> <MdOutlineVideoLibrary/> Library </li>
-            <li className='flex items-center'><MdOutlineHistory/> History </li>
-            <li className='flex items-center'> <MdOndemandVideo/> Your Videos </li>
-            <li className='flex items-center'><MdOutlineWatchLater/> Watch Later </li>
-            <li className='flex items-center'> <BiLike/> Liked Videos </li>
-            <li className='flex items-center'><RiArrowDropDownLine/> Show More </li>
+            <li  className='flex items-center'> 
+
+            <span className='flex justify-start w-12'> <MdOutlineHistory/> </span> 
+            <span className='flex justify-start w-40'> History </span>
+
+            </li>
+
+                
+            <li  className='flex items-center'> 
+
+            <span className='flex justify-start w-12'>  <MdOndemandVideo/></span> 
+            <span className='flex justify-start w-40'> Your Videos </span>
+
+            </li>
+
+            
+            <li  className='flex items-center'> 
+
+            <span className='flex justify-start w-12'> <MdOutlineWatchLater/></span> 
+            <span className='flex justify-start w-40'> Watch Later </span>
+
+            </li>
+
+            
+            <li  className='flex items-center'> 
+
+            <span className='flex justify-start w-12'> <BiLike/> </span> 
+            <span className='flex justify-start w-40'> Liked Videos </span>
+
+            </li>
+
+            
+            <li  className='flex items-center'> 
+
+            <span className='flex justify-start w-12'> <RiArrowDropDownLine/> </span> 
+            <span className='flex justify-start w-40'> Show More </span>
+
+            </li>
+
+
         </ul>
 
     </div>

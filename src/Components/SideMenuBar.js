@@ -5,11 +5,11 @@ import SubscriptionMenu from './SubscriptionMenu'
 
 const SideMenuBar = () => {
   return (
-    <div className='flex flex-col w-52 p-5'>
+    <div className='flex flex-col w-52 p-5 h-128' >
         <MainMenu/>
-        <hr/>
+       <span className='mt-5'> <hr/> </span>
         <SubMenu/>
-        <hr/>
+        <span className='mt-5'> <hr/> </span>
         <SubscriptionMenu/>
     </div>
   )
