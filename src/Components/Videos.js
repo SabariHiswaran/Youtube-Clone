@@ -4,7 +4,7 @@ import VideosContainer from './VideosContainer'
 
 const Videos = () => {
   return (
-    <div div className='flex flex-col w-[1300px]'>
+    <div className='flex flex-col w-[1300px]'>
 
       <VideoMenu/>
       <VideosContainer/>
