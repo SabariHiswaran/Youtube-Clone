@@ -13,7 +13,7 @@ const SideMenuBar = () => {
   return (
     <div className='flex flex-col w-52 p-5 h-128' >
         <MainMenu/>
-       <span className='mt-5'> <hr/> </span>
+       <span className='mt-4'> <hr/> </span>
         <SubMenu/>
         <span className='mt-5'> <hr/> </span>
         <SubscriptionMenu/>

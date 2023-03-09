@@ -1,12 +1,13 @@
 import React from 'react'
 import SideMenuBar from './SideMenuBar'
-import Videos from './Videos'
+import {Outlet} from 'react-router-dom'
 
 const Body = () => {
   return (
    <div className='flex'>
 <SideMenuBar/>
-<Videos/>
+<Outlet/>
+
    </div>
   )
 }

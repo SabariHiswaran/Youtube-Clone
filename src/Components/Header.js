@@ -27,12 +27,14 @@ const Header = () => {
                     className='h-6 ml-5 hover:cursor-pointer'
                     onClick={handleMenuClick}
                 />
-
+            
+         <a href='/'>
                 <img
                     src="https://download.logo.wine/logo/YouTube/YouTube-Logo.wine.png"
                     alt="Youtube-logo"
                     className='h-20 ml-4'
                 />
+           </a>
 
             </div>
 
