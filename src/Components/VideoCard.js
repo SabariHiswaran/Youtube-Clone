@@ -10,8 +10,7 @@ const VideoCard = ({videoinfo}) => {
     const { viewCount } = statistics
 
   return (
-    <div className='p-2 ml-8 mt-5 w-72'>
-
+    <div className='p-2 ml-8 mt-5 w-72 hover:cursor-pointer'>
         <img src={thumbnails?.medium?.url} alt={`${title}.png`} className="rounded-xl"/>
         <h3 className='font-bold text-sm'>{title} </h3>
         <p> {channelTitle}</p>
