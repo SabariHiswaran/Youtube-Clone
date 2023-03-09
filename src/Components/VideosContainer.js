@@ -1,6 +1,7 @@
 
 import {useEffect, useState} from 'react'
 import { FETCH_VIDEO_API } from '../Utils/constants'
+import VideoCard from './VideoCard'
 
 const VideosContainer = () => {
     
@@ -19,19 +20,17 @@ const VideosContainer = () => {
         setApiData(data.items)
 
     }
-    console.log(apiData)
+    // console.log(apiData)
     return (
-        <div className='flex'>
-            {apiData.map(item => {
-                return (
-                    <div className='p-5 '>
-                    <img src={item?.snippet?.thumbnails?.medium?.url} alt="thumbnail" className='rounded-xl'/>
-                    <h3 className='font-bold text-sm'>{item?.snippet?.localized?.title} </h3>
-                    <p> {item?.snippet?.channelTitle}</p>
-                </div>
-                )
-            })}
-         </div>
+        <div className='flex flex-wrap'>
+        {apiData?.map(item => {
+           
+            return (
+                <VideoCard videoinfo = {item} key={item.id} />
+            )
+        })}
+  </div>
+       
 
     )
 }
