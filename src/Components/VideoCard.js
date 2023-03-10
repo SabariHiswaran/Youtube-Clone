@@ -9,7 +9,6 @@ const VideoCard = ({videoinfo}) => {
 
     const { viewCount } = statistics
 
-    console.log(videoinfo)
 
   return (
     
