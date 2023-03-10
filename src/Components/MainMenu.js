@@ -8,13 +8,6 @@ import {Link} from 'react-router-dom'
 const MainMenu = () => {
     return (
         <div>
-            {/*             
-            <ul className='flex flex-col justify-between h-24'>
-                <li className='flex items-center justify-evenly w-28'> <FaHome/> Home</li>
-                <li className='flex items-center  justify-evenly w-28'> <FaBolt/> Shorts </li>
-                <li className='flex items-center justify-evenly mr-1 '> <MdSubscriptions/> Subscriptions</li>
-             
-            </ul> */}
 
             <ul className='flex flex-col justify-between h-24 '>
                 <Link to="/">

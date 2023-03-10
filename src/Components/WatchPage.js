@@ -1,8 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+import { useDispatch } from 'react-redux'
+import { closeMenu } from '../Utils/menuSlice'
+
+import { useSearchParams } from 'react-router-dom'
+import { GOOGLE_API_KEY, INDIVIDUAL_VIDEO_API } from '../Utils/constants'
 
 const WatchPage = () => {
+
+  const [watchVideoDetails, setWatchVideoDetails] = useState([])
+
+  // const {snippet , statistics } = watchVideoDetails
+
+  // const {title, description ,channelTitle } = snippet
+
+  const dispatch = useDispatch()
+
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    dispatch(closeMenu())
+    fetchVideoDetails()
+  }, [])
+
+  const fetchVideoDetails = async () => {
+    const data = await fetch(INDIVIDUAL_VIDEO_API + searchParams.get("v") + "&key=" + GOOGLE_API_KEY)
+    const json = await data.json()
+
+    setWatchVideoDetails(json.items)
+  }
+
+  console.log(watchVideoDetails)
   return (
-    <div>WatchPage</div>
+    <div className='ml-16 mt-4'>
+      <iframe
+        width="935px"
+        height="528"
+        src={"https://www.youtube.com/embed/" + searchParams.get("v") + "?autoplay=1"}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen>
+
+      </iframe>
+
+      <h1 className='mt-3 uppercase font-medium text-xl'> {watchVideoDetails[0]?.snippet?.title} </h1>
+
+      
+    </div>
   )
 }
 
