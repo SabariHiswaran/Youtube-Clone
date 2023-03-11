@@ -103,7 +103,7 @@ const Header = () => {
                         <ul>
                             {searchSuggestion.map(item => {
                                 return (
-                                    <li key={item} className='p-2 flex items-center ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
+                                    <li key={item} className='p-2 flex items-center hover:bg-gray-300 ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
                                 )
                             })}
                         </ul>
