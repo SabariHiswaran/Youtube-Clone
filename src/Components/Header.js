@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import hamburger from "../Images/hamburger-menu.png"
 import notification from "../Images/notification.png"
 import profileicon from "../Images/profileicon.png"
 import { SEARCH_SUGGESTION_API } from '../Utils/constants'
 import { menuReducer } from '../Utils/menuSlice'
-
+import { searchReducer } from '../Utils/searchSlice'
 
 import { BsSearch } from "react-icons/bs"
 
@@ -16,25 +16,40 @@ const Header = () => {
 
     const [searchSuggestion, setSearchSuggestion] = useState([])
 
-    const [searchHidden,setSearchHidden] = useState(true)
+    const [searchHidden, setSearchHidden] = useState(true)
+
+    const dispatch = useDispatch()
+
+    const selector = useSelector((store) => store.searchReducer)
 
     useEffect(() => {
 
         //implementing debouncing using setTimeOut with 200 ms and clearing the timer
-     const timer =   setTimeout(() => getSearchSuggestion() , 200)
+
+
+        const timer = setTimeout(() => {
+            if (selector[searchQuery]) {
+                setSearchSuggestion(selector[searchQuery])
+            }
+            else {
+                getSearchSuggestion()
+            }
+        }
+            , 200)
 
         return () => clearTimeout(timer)
 
     }, [searchQuery])
 
     const getSearchSuggestion = async () => {
-        console.log("search called")
+       
         const data = await fetch(SEARCH_SUGGESTION_API + searchQuery)
         const json = await data.json()
         setSearchSuggestion(json[1])
+        dispatch(searchReducer({ [searchQuery]: json[1] }))
     }
 
-    const dispatch = useDispatch()
+
 
     const handleMenuClick = () => {
         dispatch(menuReducer())
@@ -71,10 +86,10 @@ const Header = () => {
                         className='border border-3 border-gray-300 w-96 h-8 p-2 rounded-l-xl'
                         onFocus={() => setSearchHidden(false)}
                         onBlur={() => setSearchHidden(true)}
-                        />
+                    />
 
                     <button className='bg-gray-100 h-8  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
-                        <BsSearch/>
+                        <BsSearch />
                     </button>
 
                     <img
@@ -83,17 +98,16 @@ const Header = () => {
                         className='h-5 ml-6'
                     />
                 </div>
-                {!searchHidden && 
-                <div className='bg-gray-50 w-96 border rounded-lg border-gray-100 relative shadow-md'>
-                    <ul>
-                        {searchSuggestion.map(item => 
-                        {
-                    return (
-                        <li key={item} className='p-2 flex items-center ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
-                    )
-                    })}
-                    </ul>
-                </div>
+                {!searchHidden &&
+                    <div className='bg-gray-50 w-96 border rounded-lg border-gray-100 relative shadow-md'>
+                        <ul>
+                            {searchSuggestion.map(item => {
+                                return (
+                                    <li key={item} className='p-2 flex items-center ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                 }
             </div>
             <div className='flex items-center p-5'>
