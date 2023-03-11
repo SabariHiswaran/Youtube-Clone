@@ -6,6 +6,8 @@ import { closeMenu } from '../Utils/menuSlice'
 import { useSearchParams } from 'react-router-dom'
 import { GOOGLE_API_KEY, INDIVIDUAL_VIDEO_API } from '../Utils/constants'
 
+import profile from "../Images/profileicon.png"
+
 const WatchPage = () => {
 
   const [watchVideoDetails, setWatchVideoDetails] = useState([])
@@ -31,10 +33,57 @@ const WatchPage = () => {
   }
 
   console.log(watchVideoDetails)
+
+
+  const commentsData = [
+    {
+      profileName: "Sabari Hiswaran ",
+      comment: " Amazing Content. Keep it up ",
+      reply: [
+        {
+          profileName: "Sabari Hiswaran ",
+          comment: " Amazing Content. Keep it up "
+        }
+      ]
+    },
+    {
+      profileName: "Sabari Hiswaran ",
+      comment: " Amazing Content. Keep it up ",
+      reply: [
+        {
+          profileName: "Sabari Hiswaran ",
+          comment: " Amazing Content. Keep it up ",
+          reply: [
+            {
+              profileName: "Sabari Hiswaran ",
+              comment: " Amazing Content. Keep it up "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      profileName: "Sabari Hiswaran ",
+      comment: " Amazing Content. Keep it up ",
+      reply: ""
+    },
+    {
+      profileName: "Sabari Hiswaran ",
+      comment: " Amazing Content. Keep it up ",
+      reply: ""
+    },
+    {
+      profileName: "Sabari Hiswaran ",
+      comment: " Amazing Content. Keep it up ",
+      reply: ""
+    }
+  ]
+
+
   return (
-    <div className='ml-16 mt-4'>
+    <div className='ml-16 mt-4 w-[935px]'>
       <iframe
-        width="935px"
+        width="100%"
         height="528"
         src={"https://www.youtube.com/embed/" + searchParams.get("v") + "?autoplay=1"}
         title="YouTube video player"
@@ -44,9 +93,30 @@ const WatchPage = () => {
 
       </iframe>
 
-      <h1 className='mt-3 uppercase font-medium text-xl'> {watchVideoDetails[0]?.snippet?.title} </h1>
+      <h1 className='mt-3 uppercase font-medium text-xl '> {watchVideoDetails[0]?.snippet?.title} </h1>
 
-      
+      <div>
+
+        <h1 className='font-bold'> Comments </h1>
+
+
+        {commentsData.map(item => {
+          return (
+            <div className='flex'>
+              <img src={profile} alt="profileimage.png" className='rounded-lg w-16 h-16' />
+
+              <div className='flex flex-col justify-center'>
+                <h1 className='font-semibold'> {item.profileName} <span className='font-normal text-xs'> 2 Hours Ago.</span> </h1>
+                <p>  {item.comment}</p>
+              </div>
+            </div>
+          )
+        })}
+
+
+
+      </div>
+
     </div>
   )
 }
