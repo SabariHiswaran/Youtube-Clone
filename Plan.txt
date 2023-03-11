@@ -5,5 +5,12 @@
                         VideosContainer 
                         VideoDetails
 
-                        
 
+caching plan:
+     
+     each change on search dispatch action => calls searchReducer => updates the state with new search suggestions 
+                        
+      data structure that is going to be passed as payload is ,
+      {
+        searchQuwery : [searchSuggestions]
+      }

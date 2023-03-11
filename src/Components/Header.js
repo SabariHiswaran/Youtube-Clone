@@ -20,7 +20,7 @@ const Header = () => {
 
     useEffect(() => {
 
-        //implementing debouncing using setTimeOut
+        //implementing debouncing using setTimeOut with 200 ms and clearing the timer
      const timer =   setTimeout(() => getSearchSuggestion() , 200)
 
         return () => clearTimeout(timer)
@@ -28,6 +28,7 @@ const Header = () => {
     }, [searchQuery])
 
     const getSearchSuggestion = async () => {
+        console.log("search called")
         const data = await fetch(SEARCH_SUGGESTION_API + searchQuery)
         const json = await data.json()
         setSearchSuggestion(json[1])
@@ -88,7 +89,7 @@ const Header = () => {
                         {searchSuggestion.map(item => 
                         {
                     return (
-                        <li className='p-2 flex items-center ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
+                        <li key={item} className='p-2 flex items-center ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
                     )
                     })}
                     </ul>
