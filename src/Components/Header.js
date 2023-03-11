@@ -1,23 +1,44 @@
-import React , {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import hamburger from "../Images/hamburger-menu.png"
 import notification from "../Images/notification.png"
 import profileicon from "../Images/profileicon.png"
+import { SEARCH_SUGGESTION_API } from '../Utils/constants'
 import { menuReducer } from '../Utils/menuSlice'
 
 
+import { BsSearch } from "react-icons/bs"
 
 const Header = () => {
 
-    const [searchQuery,setSearchQuery] = useState("")
+    const [searchQuery, setSearchQuery] = useState("")
+
+    const [searchSuggestion, setSearchSuggestion] = useState([])
+
+    const [searchHidden,setSearchHidden] = useState(true)
+
+    useEffect(() => {
+
+        //implementing debouncing using setTimeOut
+     const timer =   setTimeout(() => getSearchSuggestion() , 200)
+
+        return () => clearTimeout(timer)
+
+    }, [searchQuery])
+
+    const getSearchSuggestion = async () => {
+        const data = await fetch(SEARCH_SUGGESTION_API + searchQuery)
+        const json = await data.json()
+        setSearchSuggestion(json[1])
+    }
 
     const dispatch = useDispatch()
 
     const handleMenuClick = () => {
         dispatch(menuReducer())
     }
-    console.log(searchQuery)
+
     return (
         <div className='flex h-20 justify-between'>
 
@@ -39,26 +60,41 @@ const Header = () => {
                 </a>
 
             </div>
+            <div className='mt-6'>
+                <div className='flex items-center'>
 
-            <div className='flex items-center'>
+                    <input
+                        type="text"
+                        placeholder='Search'
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className='border border-3 border-gray-300 w-96 h-8 p-2 rounded-l-xl'
+                        onFocus={() => setSearchHidden(false)}
+                        onBlur={() => setSearchHidden(true)}
+                        />
 
-                <input
-                    type="text"
-                    placeholder='Search'
-                    onChange={(e) => setSearchQuery(e.target.value) }
-                    className='border border-3 border-gray-300 w-96 h-8 p-2 rounded-l-xl' />
+                    <button className='bg-gray-100 h-8  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
+                        <BsSearch/>
+                    </button>
 
-                <button className='bg-gray-100 h-8  border border-3 border-gray-300 rounded-r-xl pr-3 pl-3 ' >
-                    Search
-                </button>
-
-                <img
-                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2WeO764gT6so9cBdAcrpeEP3_-1dztDw5qA&usqp=CAU'
-                    alt="voiceassistant"
-                    className='h-5 ml-6'
-                />
+                    <img
+                        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2WeO764gT6so9cBdAcrpeEP3_-1dztDw5qA&usqp=CAU'
+                        alt="voiceassistant"
+                        className='h-5 ml-6'
+                    />
+                </div>
+                {!searchHidden && 
+                <div className='bg-gray-50 w-96 border rounded-lg border-gray-100 relative shadow-md'>
+                    <ul>
+                        {searchSuggestion.map(item => 
+                        {
+                    return (
+                        <li className='p-2 flex items-center ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
+                    )
+                    })}
+                    </ul>
+                </div>
+                }
             </div>
-
             <div className='flex items-center p-5'>
                 <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGtB6Mbi5pmn_6KGAGivVnAGRYw8lJIL_fU87hsY&s'
                     alt="add-video" className='h-8 mr-6 pt-1' />
