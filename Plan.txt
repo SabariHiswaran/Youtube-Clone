@@ -5,7 +5,6 @@
                         VideosContainer 
                         VideoDetails
 
-
 caching plan:
      
      each change on search dispatch action => calls searchReducer => updates the state with new search suggestions 
@@ -14,3 +13,17 @@ caching plan:
       {
         searchQuwery : [searchSuggestions]
       }
+
+views:
+
+length
+
+3 - 3
+4 - 1st digit + k 
+5 - 2 digits + k 
+6  3digits + K 
+7 - 1st and 2nd digit decimal + M 
+8 - 2nd and 3rd digiti decimal + M 
+9 - 3rd and 4th digit decimal + M
+
+
