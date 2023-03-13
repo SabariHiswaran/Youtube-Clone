@@ -21,12 +21,13 @@ const VideosContainer = () => {
         setApiData(data.items)
 
     }
+    
     return (
         <div className='flex flex-wrap'>
             {apiData?.map(item => {
 
                 return (
-                    <Link key={item?.id}  to={"/watch?v=" + item?.id}>
+                    <Link key={item?.id} to={"/watch?v=" + item?.id}>
                         <VideoCard videoinfo={item} />
                     </Link>
                 )

@@ -2,18 +2,26 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const menuslice = createSlice({
-    name: "menuslice",   //whatever the name you want based on the slice
+    name: "menuslice",  
     initialState: {
-        menustate: true
+        menustate: true ,
+        watchPageMenuState : true
     },
     reducers: {
         menuReducer: (state) => {
-            state.menustate = !state.menustate
+            return {
+                ...state,
+                menustate : !state.menustate
+            }
+           
         },
         closeMenu: (state) => {
-            state.menustate = false
+            return {
+                ...state,
+                watchPageMenuState : false
+            }
         }
-    }
+    } 
 
 
 })

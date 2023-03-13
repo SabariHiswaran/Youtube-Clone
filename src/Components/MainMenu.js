@@ -14,7 +14,7 @@ const MainMenu = () => {
                 <li className='flex items-center p-1 hover:bg-gray-300 hover:rounded-md'>
 
                     <span className='flex justify-start w-12'> <FaHome /></span>
-                    <span className='flex justify-start w-40'> Home </span>
+                    <span className='flex justify-start  w-40'> Home </span>
 
                 </li>
                 </Link>
