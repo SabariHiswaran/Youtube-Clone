@@ -32,7 +32,7 @@ const WatchPage = () => {
 
     setWatchVideoDetails(json.items)
   }
-// console.log(watchVideoDetails)
+ console.log(watchVideoDetails)
 
  
   return (
