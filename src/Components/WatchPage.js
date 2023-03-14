@@ -7,14 +7,15 @@ import { useSearchParams } from 'react-router-dom'
 import { GOOGLE_API_KEY, INDIVIDUAL_VIDEO_API } from '../Utils/constants'
 
 import CommentsContainer from './CommentsContainer'
+import ChannelDetails from './ChannelDetails'
 
 const WatchPage = () => {
 
   const [watchVideoDetails, setWatchVideoDetails] = useState([])
 
-  // const {snippet , statistics } = watchVideoDetails
+  //  const {snippet , statistics } = watchVideoDetails
 
-  // const {title, description ,channelTitle } = snippet
+  //  const {title, description ,channelTitle } = snippet
 
   const dispatch = useDispatch()
 
@@ -49,6 +50,8 @@ const WatchPage = () => {
       </iframe>
 
       <h1 className='mt-3 uppercase font-medium text-xl '> {watchVideoDetails[0]?.snippet?.title} </h1>
+
+      <ChannelDetails channelTitle ={watchVideoDetails[0]?.snippet?.channelTitle} />
 
       <CommentsContainer/>
 
