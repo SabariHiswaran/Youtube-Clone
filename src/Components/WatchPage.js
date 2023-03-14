@@ -21,7 +21,8 @@ const WatchPage = () => {
   const [searchParams] = useSearchParams()
 
   useEffect(() => {
-    dispatch(closeMenu())
+   
+   dispatch(closeMenu())
     fetchVideoDetails()
   }, [])
 
@@ -31,12 +32,11 @@ const WatchPage = () => {
 
     setWatchVideoDetails(json.items)
   }
-
-console.log(watchVideoDetails)
+// console.log(watchVideoDetails)
 
  
   return (
-    <div className='ml-16 mt-4 w-[935px]'>
+    <div className=' mt-4 w-[935px]'>
       <iframe
         width="100%"
         height="528"

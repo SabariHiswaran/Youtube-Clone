@@ -10,14 +10,14 @@ const menuslice = createSlice({
     reducers: {
         menuReducer: (state) => {
             return {
-                ...state,
-                menustate : !state.menustate
+                    menustate : !state.menustate,
+                    watchPageMenuState : true
             }
            
         },
         closeMenu: (state) => {
             return {
-                ...state,
+                menustate : false,
                 watchPageMenuState : false
             }
         }

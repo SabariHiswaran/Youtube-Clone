@@ -56,7 +56,7 @@ const Header = () => {
     }
 
     return (
-        <div className='flex h-20 justify-between'>
+        <div className='flex h-20 justify-between '>
 
             <div className='flex items-center'>
 
@@ -83,12 +83,12 @@ const Header = () => {
                         type="text"
                         placeholder='Search'
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className='border border-3 border-gray-300 w-96 h-8 p-2 rounded-l-xl'
+                        className='border border-3 border-gray-300 w-[580px] h-[41px] p-1 rounded-l-xl'
                         onFocus={() => setSearchHidden(false)}
                         onBlur={() => setSearchHidden(true)}
                     />
 
-                    <button className='bg-gray-100 h-8  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
+                    <button className='bg-gray-100 h-[41px]  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
                         <BsSearch />
                     </button>
 
@@ -99,7 +99,7 @@ const Header = () => {
                     />
                 </div>
                 {!searchHidden &&
-                    <div className='bg-gray-50 w-96 border rounded-lg border-gray-100 relative shadow-md'>
+                    <div className='bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md'>
                         <ul>
                             {searchSuggestion.map(item => {
                                 return (

@@ -21,9 +21,9 @@ const VideosContainer = () => {
         setApiData(data.items)
 
     }
-    
+    console.log(apiData)
     return (
-        <div className='flex flex-wrap'>
+        <div className='flex flex-wrap ml-10'>
             {apiData?.map(item => {
 
                 return (

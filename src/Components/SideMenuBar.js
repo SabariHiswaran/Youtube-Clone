@@ -18,7 +18,7 @@ const SideMenuBar = () => {
         <SubscriptionMenu/>
     </div>
   ) : (
-    <div className=' w-28 p-5 h-128'>
+    <div className=' w-24 p-5 h-128'>
       <HidedMainMenu />
     </div>
   )
