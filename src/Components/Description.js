@@ -11,7 +11,7 @@ const Description = ({ description }) => {
 
 
     return (
-        <div className='mt-7  w-[935px] bg-gray-100 rounded-lg hover:bg-gray-200 hover:cursor-pointer' onClick={handleClick}>
+        <div className='mt-7  w-[935px] bg-gray-100 rounded-lg hover:bg-gray-200 hover:cursor-pointer p-3 pl-4' onClick={handleClick}>
             <h2 className='font-semibold mt-3'> Description :</h2>
             <div>
                 <pre className='whitespace-pre-line mt-3 text-sm'>

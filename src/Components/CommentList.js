@@ -7,7 +7,7 @@ const CommentList = ( {commentsData}) => {
     commentsData?.map ((item,index) => {
        
             return (
-                <div key={index}>
+                <div key={index} className="mt-4">
                 <Comment  commentData = {item} />
                 <div className='pl-5 border border-l-black'>
                  {item.reply && <CommentList commentsData={item.reply}/>}

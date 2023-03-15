@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { FETCH_VIDEO_API } from '../Utils/constants'
 import VideoCard from './VideoCard'
 import { Link } from 'react-router-dom'
+import VideoShimmer from './VideoShimmer'
 
 const VideosContainer = () => {
 
@@ -22,7 +23,7 @@ const VideosContainer = () => {
 
     }
     console.log(apiData)
-    return (
+    return apiData.length ===0 ? <VideoShimmer/> : (
         <div className='flex flex-wrap ml-10'>
             {apiData?.map(item => {
 
