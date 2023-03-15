@@ -50,7 +50,7 @@ const commentsData = [
 
 const CommentsContainer = () => {
   return (
-    <div>
+    <div className='mt-5'>
 
     <h1 className='font-bold'> Comments </h1>
 

@@ -49,9 +49,9 @@ const WatchPage = () => {
 
       </iframe>
 
-      <h1 className='mt-3 uppercase font-medium text-xl '> {watchVideoDetails[0]?.snippet?.title} </h1>
+      <h1 className='mt-3 font-medium text-xl '> {watchVideoDetails[0]?.snippet?.title} </h1>
 
-      <ChannelDetails channelTitle ={watchVideoDetails[0]?.snippet?.channelTitle} />
+      <ChannelDetails channelTitle ={watchVideoDetails[0]?.snippet?.channelTitle} channelImage = {watchVideoDetails[0]?.snippet?.thumbnails?.default?.url}/>
 
       <CommentsContainer/>
 
