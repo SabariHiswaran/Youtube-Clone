@@ -8,6 +8,7 @@ import { GOOGLE_API_KEY, INDIVIDUAL_VIDEO_API } from '../Utils/constants'
 
 import CommentsContainer from './CommentsContainer'
 import ChannelDetails from './ChannelDetails'
+import Description from './Description'
 
 const WatchPage = () => {
 
@@ -51,7 +52,12 @@ const WatchPage = () => {
 
       <h1 className='mt-3 font-medium text-xl '> {watchVideoDetails[0]?.snippet?.title} </h1>
 
-      <ChannelDetails channelTitle ={watchVideoDetails[0]?.snippet?.channelTitle} channelImage = {watchVideoDetails[0]?.snippet?.thumbnails?.default?.url}/>
+      <ChannelDetails 
+      channelTitle ={watchVideoDetails[0]?.snippet?.channelTitle}
+      channelImage = {watchVideoDetails[0]?.snippet?.thumbnails?.default?.url}
+      />
+
+      <Description   description = {watchVideoDetails[0]?.snippet?.description}/>
 
       <CommentsContainer/>
 

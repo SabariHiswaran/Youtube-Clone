@@ -4,6 +4,12 @@ import { SlLike, SlDislike } from 'react-icons/sl'
 
 import { TbShare3 } from 'react-icons/tb'
 
+import {HiScissors} from 'react-icons/hi'
+
+import {MdOutlinePlaylistAdd} from 'react-icons/md'
+
+import {BsThreeDots} from "react-icons/bs"
+
 const ChannelDetails = ({ channelTitle, channelImage }) => {
     return (
         <div className='mt-7 flex items-center w-[935px]'>
@@ -26,28 +32,48 @@ const ChannelDetails = ({ channelTitle, channelImage }) => {
 
                 <div className='flex'>
                 <div >
-                    <button className='bg-gray-300 w-[76px] rounded-l-lg flex items-center  h-[33px]'>
+                    <button className='bg-gray-300 w-[76px] rounded-l-xl flex items-center  h-[33px]'>
                         <span className='ml-2'><SlLike /></span>
                         <span className='ml-2' >62K</span>
                     </button>
                 </div>
                 <div>
-                    <button className='bg-gray-300 w-[50px]  rounded-r-lg h-[33px] flex justify-center items-center'><SlDislike /></button>
+                    <button className='bg-gray-300 w-[50px]  rounded-r-xl h-[33px] flex justify-center items-center'><SlDislike /></button>
                 </div>
                 </div>
 
                 <div className='ml-4'>
-                    <button className='bg-gray-300 w-[76px] rounded-lg flex items-center  h-[33px]'>
-                        <span className='ml-2' ><TbShare3 /></span>
-                        <span className='ml-2' >Share</span>
+                    <button className='bg-gray-300 w-[76px] rounded-xl flex items-center  h-[33px]'>
+                        <span className='ml-2 ' ><TbShare3 /></span>
+                        <span className='ml-2 pr-2' >Share</span>
                     </button>
                 </div>
 
+                
+                <div className='ml-4'>
+                    <button className='bg-gray-300 w-[76px] rounded-xl flex items-center  h-[33px]'>
+                        <span className='ml-2' ><HiScissors /></span>
+                        <span className='ml-2' >Clip</span>
+                    </button>
+                </div>
 
+                <div className='ml-4'>
+                    <button className='bg-gray-300 w-[76px] rounded-xl flex items-center  h-[33px]'>
+                        <span className='ml-2' ><MdOutlinePlaylistAdd /></span>
+                        <span className='ml-2' >Save</span>
+                    </button>
+                </div>
 
+                <div className='ml-4'>
+                    <button className='bg-gray-300 w-[37px] rounded-[50%] flex justify-center items-center h-[33px]'>
+                        <span ><BsThreeDots /></span>
+                    </button>
+                </div>
 
             </div>
         </div>
+
+        
     )
 }
 
