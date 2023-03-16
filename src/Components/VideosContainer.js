@@ -22,7 +22,7 @@ const VideosContainer = () => {
         setApiData(data.items)
 
     }
-    console.log(apiData)
+    // console.log(apiData)
     return apiData.length ===0 ? <VideoShimmer/> : (
         <div className='flex flex-wrap ml-10'>
             {apiData?.map(item => {
