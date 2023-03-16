@@ -2,22 +2,20 @@ import React from 'react'
 
 import dasara from "../Images/dasara.jpg"
 
-const SearchRelatedVideos = ({videosInfo}) => {
+const SearchRelatedVideos = ({thumbnail,channelTitle,description}) => {
 
-    const {thumbnail , channelId, description,channelTitle } = videosInfo
-
-    const shortDescription = description.substr(0,20)
+    const shortDescription = description?.substr(0,150)
 
     return (
-        <div className='p-5 pl-10 flex mt-3'>
+        <div className='p-5 pl-10 flex mt-3 w-[1000px] h-[220px]'>
 
-            <div className='w-[360px]'>
+            <div className='w-[400px] '>
 
-                <img src={thumbnail.default.url} alt="image" className='w-[360px] rounded-lg' />
+                <img src={thumbnail} alt="image" className='w-[400px] h-[220px] rounded-lg' />
 
             </div>
 
-            <div className='ml-5'>
+            <div className='ml-5 w-[600px]'>
 
                 <h2 className='font-semibold'> {channelTitle} </h2>
 
@@ -25,7 +23,7 @@ const SearchRelatedVideos = ({videosInfo}) => {
 
                 <div className=' w-[150px] flex mt-2 items-center'>
 
-                    <img src={thumbnail.default.url} className="rounded-[50%] h-8 w-[35px] bg-cover" alt="video" />
+                    <img src={thumbnail} className="rounded-[50%] h-8 w-[35px] bg-cover" alt="video" />
 
                     <p className='ml-2 font-normal text-sm text-gray'> {channelTitle} </p>
 

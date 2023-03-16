@@ -10,13 +10,13 @@ const SearchResults = () => {
 
     const [searchParam] = useSearchParams()
 
-    const [videoList,setVideoList] = useState()
+    const [videoList,setVideoList] = useState([])
 
     useEffect(() => {
         
         searchedVideoList()
 
-    } , [])
+    } , [searchParam])
 
     const searchedVideoList = async () => {
         const videoList =await fetch(SEARCHED_VIDEO_LIST + searchParam.get("search_query"))
@@ -42,9 +42,19 @@ const SearchResults = () => {
 
             <hr className='mt-3'/>
 
-
-            <SearchRelatedVideos videosInfo = {videoList[0]?.snippet} />
-
+            {
+                videoList.map(item => {
+                    return(
+                        <SearchRelatedVideos 
+                        thumbnail = {item?.snippet?.thumbnails?.medium?.url}
+                        channelTitle = {item?.snippet?.channelTitle}
+                        description = {item?.snippet?.description}
+                        key={item?.snippet?.channelId}
+                        />
+                    )
+                })
+          
+            }
     </div>
 
   )
