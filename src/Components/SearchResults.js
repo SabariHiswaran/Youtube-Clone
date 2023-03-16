@@ -10,16 +10,18 @@ const SearchResults = () => {
 
     const [searchParam] = useSearchParams()
 
+    const searchQuery = searchParam.get("search_query")
+
     const [videoList,setVideoList] = useState([])
 
     useEffect(() => {
         
         searchedVideoList()
 
-    } , [searchParam])
+    } , [searchQuery])
 
     const searchedVideoList = async () => {
-        const videoList =await fetch(SEARCHED_VIDEO_LIST + searchParam.get("search_query"))
+        const videoList =await fetch(SEARCHED_VIDEO_LIST + searchQuery)
 
         const data = await videoList.json()
 
