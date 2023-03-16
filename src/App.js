@@ -7,21 +7,35 @@ import Header from './Components/Header';
 import store from './Utils/store';
 import Videos from './Components/Videos';
 import WatchPage from './Components/WatchPage';
+import SearchResults from './Components/SearchResults';
 
-const appRouter = createBrowserRouter([{
-   path :"/",
-   element:<Body/>,
-   children : [
-      {
-      path:"/",
-      element: <Videos />
-   },
+const appRouter = createBrowserRouter([
    {
-      path : "/watch",
-      element:<WatchPage/>
-   }
-]
-}])
+      path:"/",
+      element:<Header/>,
+      children:[
+         {
+            path :"/",
+            element:<Body/>,
+            children : [
+               {
+               path:"/",
+               element: <Videos />
+            },
+            {
+               path : "/watch",
+               element:<WatchPage/>
+            },
+            {
+               path: '/results',
+               element:<SearchResults/>
+            }
+         ]
+         }
+      ]
+   },
+   
+ ])
 
 
 function App() {
@@ -29,7 +43,7 @@ function App() {
   return (
      <Provider store={store}>
 
-        <Header/>
+        {/* <Header/> */}
         <RouterProvider router = {appRouter}/>
         
      </Provider>

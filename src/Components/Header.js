@@ -9,6 +9,8 @@ import { menuReducer } from '../Utils/menuSlice'
 import { searchReducer } from '../Utils/searchSlice'
 
 import { BsSearch } from "react-icons/bs"
+import SearchSuggestion from './SearchSuggestion'
+import { Outlet, Link } from 'react-router-dom'
 
 const Header = () => {
 
@@ -16,11 +18,13 @@ const Header = () => {
 
     const [searchSuggestion, setSearchSuggestion] = useState([])
 
-    const [searchHidden, setSearchHidden] = useState(true)
+    // const [searchHidden, setSearchHidden] = useState(true)
 
     const dispatch = useDispatch()
 
     const selector = useSelector((store) => store.searchReducer)
+
+    // const isVisible = searchHidden ? "invisible" : "visible"
 
     useEffect(() => {
 
@@ -42,7 +46,7 @@ const Header = () => {
     }, [searchQuery])
 
     const getSearchSuggestion = async () => {
-       
+
         const data = await fetch(SEARCH_SUGGESTION_API + searchQuery)
         const json = await data.json()
         setSearchSuggestion(json[1])
@@ -55,70 +59,89 @@ const Header = () => {
         dispatch(menuReducer())
     }
 
+
+    
     return (
-        <div className='flex h-20 justify-between '>
+        <>
+            <div className='flex h-20 justify-between '>
 
-            <div className='flex items-center'>
-
-                <img
-                    src={hamburger}
-                    alt="Menu-btn"
-                    className='h-6 ml-5 hover:cursor-pointer'
-                    onClick={handleMenuClick}
-                />
-
-                <a href='/'>
-                    <img
-                        src="https://download.logo.wine/logo/YouTube/YouTube-Logo.wine.png"
-                        alt="Youtube-logo"
-                        className='h-20 ml-4'
-                    />
-                </a>
-
-            </div>
-            <div className='mt-6'>
                 <div className='flex items-center'>
 
-                    <input
-                        type="text"
-                        placeholder='Search'
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className='border border-3 border-gray-300 w-[580px] h-[41px] p-1 rounded-l-xl'
-                        onFocus={() => setSearchHidden(false)}
-                        onBlur={() => setSearchHidden(true)}
-                    />
-
-                    <button className='bg-gray-100 h-[41px]  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
-                        <BsSearch />
-                    </button>
-
                     <img
-                        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2WeO764gT6so9cBdAcrpeEP3_-1dztDw5qA&usqp=CAU'
-                        alt="voiceassistant"
-                        className='h-5 ml-6'
+                        src={hamburger}
+                        alt="Menu-btn"
+                        className='h-6 ml-5 hover:cursor-pointer'
+                        onClick={handleMenuClick}
                     />
+
+                    <a href='/'>
+                        <img
+                            src="https://download.logo.wine/logo/YouTube/YouTube-Logo.wine.png"
+                            alt="Youtube-logo"
+                            className='h-20 ml-4'
+                        />
+                    </a>
+
                 </div>
-                {!searchHidden &&
-                    <div className='bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md'>
+                <div className='mt-6'>
+                    <div className='flex items-center'>
+
+                        <input
+                            type="text"
+                            placeholder='Search'
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className='border border-3 border-gray-300 w-[580px] h-[41px] p-1 rounded-l-xl'
+                            value={searchQuery}
+                        // onFocus={() => setSearchHidden(false)}
+                        // onBlur={() => setSearchHidden(true)}
+                        />
+
+                        <button className='bg-gray-100 h-[41px]  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
+                            <BsSearch />
+                        </button>
+
+                        <img
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2WeO764gT6so9cBdAcrpeEP3_-1dztDw5qA&usqp=CAU'
+                            alt="voiceassistant"
+                            className='h-5 ml-6'
+                        />
+                    </div>
+
+                    {/* className="bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md" */}
+              
+                    <div className="bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md">
                         <ul>
-                            {searchSuggestion.map(item => {
+                            {searchSuggestion?.map(item => {
                                 return (
-                                    <li key={item} className='p-2 flex items-center hover:bg-gray-300 ' ><BsSearch /> <span className='ml-4'>{item} </span> </li>
+                                    <Link to={"/results?search_query="+item} key={item}>
+                                        {/* <SearchSuggestion item ={item} /> */}
+                                        <li key={item} className='p-2 flex items-center hover:bg-gray-300 ' >
+                                            <BsSearch />
+
+                                            <span className='ml-4'>{item} </span>
+
+                                        </li>
+                                    </Link>
+
                                 )
                             })}
                         </ul>
                     </div>
-                }
-            </div>
-            <div className='flex items-center p-5'>
-                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGtB6Mbi5pmn_6KGAGivVnAGRYw8lJIL_fU87hsY&s'
-                    alt="add-video" className='h-8 mr-6 pt-1' />
+                  
+                </div>
+                     
+                <div className='flex items-center p-5'>
+                    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGtB6Mbi5pmn_6KGAGivVnAGRYw8lJIL_fU87hsY&s'
+                        alt="add-video" className='h-8 mr-6 pt-1' />
 
-                <img src={notification} alt="notification-icon" className='h-6 mr-3' />
+                    <img src={notification} alt="notification-icon" className='h-6 mr-3' />
 
-                <img src={profileicon} alt="profile-icon" className='h-14' />
+                    <img src={profileicon} alt="profile-icon" className='h-14' />
+                </div>
             </div>
-        </div>
+            <Outlet />
+        </>
+
     )
 }
 

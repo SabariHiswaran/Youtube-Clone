@@ -14,7 +14,7 @@ const Description = ({ description }) => {
         <div className='mt-7  w-[935px] bg-gray-100 rounded-lg hover:bg-gray-200 hover:cursor-pointer p-3 pl-4' onClick={handleClick}>
             <h2 className='font-semibold mt-3'> Description :</h2>
             <div>
-                <pre className='whitespace-pre-line mt-3 text-sm'>
+                <pre className='whitespace-pre-line mt-3 text-sm font-normal font-sans'>
 
                     {isTextHidden ? description?.substr(0, 100) : description}
                 </pre>
