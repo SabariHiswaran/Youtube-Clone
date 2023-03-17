@@ -15,9 +15,9 @@ const SearchResults = () => {
     const [videoList,setVideoList] = useState([])
 
     useEffect(() => {
-        
+        setVideoList([])
         searchedVideoList() 
-    } ,[])
+    } ,[searchQuery])
 
     const searchedVideoList = async () => {
         const videoList =await fetch(SEARCHED_VIDEO_LIST + searchQuery)

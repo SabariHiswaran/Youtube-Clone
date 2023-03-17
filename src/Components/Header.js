@@ -134,17 +134,16 @@ const Header = () => {
               
                     <div className="bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md">
                         <ul>
-                            {searchSuggestion?.map(item => {
+                            {searchSuggestion?.map((item,index) => {
                                 return (
-                                    <Link to={"/results?search_query="+item} key={item}>
-                                        {/* <SearchSuggestion item ={item} /> */}
-                                        <li key={item} className='p-2 flex items-center hover:bg-gray-300 ' >
+                                   
+                                         <SearchSuggestion item ={item} key={index} searchQuery = {searchQuery} setSearchQuery = {setSearchQuery} /> 
+                                        /* <li key={item} className='p-2 flex items-center hover:bg-gray-300 ' >
                                             <BsSearch />
 
                                             <span className='ml-4'>{item} </span>
 
-                                        </li>
-                                    </Link>
+                                        </li> */
 
                                 )
                             })}
