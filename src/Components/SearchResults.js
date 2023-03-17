@@ -16,9 +16,8 @@ const SearchResults = () => {
 
     useEffect(() => {
         
-        searchedVideoList()
-
-    } , [searchQuery])
+        searchedVideoList() 
+    } ,[])
 
     const searchedVideoList = async () => {
         const videoList =await fetch(SEARCHED_VIDEO_LIST + searchQuery)
@@ -45,7 +44,7 @@ const SearchResults = () => {
             <hr className='mt-3'/>
 
             {
-                videoList.map(item => {
+                videoList?.map(item => {
                     return(
                         <SearchRelatedVideos 
                         thumbnail = {item?.snippet?.thumbnails?.medium?.url}

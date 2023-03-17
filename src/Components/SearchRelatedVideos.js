@@ -1,6 +1,5 @@
 import React from 'react'
 
-import dasara from "../Images/dasara.jpg"
 
 const SearchRelatedVideos = ({thumbnail,channelTitle,description}) => {
 
@@ -11,7 +10,7 @@ const SearchRelatedVideos = ({thumbnail,channelTitle,description}) => {
 
             <div className='w-[400px] '>
 
-                <img src={thumbnail} alt="image" className='w-[400px] h-[220px] rounded-lg' />
+                <img src={thumbnail} alt="thumbnailimage" className='w-[400px] h-[220px] rounded-lg' />
 
             </div>
 
