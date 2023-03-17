@@ -12,6 +12,9 @@ import { BsSearch } from "react-icons/bs"
 import SearchSuggestion from './SearchSuggestion'
 import { Outlet, Link } from 'react-router-dom'
 
+import {RxCross2} from 'react-icons/rx'
+import {VscBlank} from 'react-icons/vsc'
+
 const Header = () => {
 
     const [searchQuery, setSearchQuery] = useState("")
@@ -59,7 +62,9 @@ const Header = () => {
         dispatch(menuReducer())
     }
 
-
+    const clearSearch = () => {
+        setSearchQuery("")
+    }
     
     return (
         <>
@@ -90,16 +95,34 @@ const Header = () => {
                             type="text"
                             placeholder='Search'
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className='border border-3 border-gray-300 w-[580px] h-[41px] p-1 rounded-l-xl'
+                            className='border border-3 border-gray-300 border-r-0 w-[540px] h-[41px] p-1 rounded-l-xl focus:outline-none'
                             value={searchQuery}
                         // onFocus={() => setSearchHidden(false)}
                         // onBlur={() => setSearchHidden(true)}
                         />
 
+                        {
+                            searchQuery.length >=1 
+                            ? 
+                        <button
+                         className=" h-[41px]  border border-r-0 border-l-0 border-t-gray-300 border-b-gray-300 pl-3 w-[40px] "
+                         onClick={clearSearch}
+                         >
+                            <RxCross2 />
+                        </button>
+                        :
+                        <button
+                         className=" h-[41px]  border border-r-0 border-l-0 border-t-gray-300 border-b-gray-300 pl-3 w-[40px] "
+                        
+                         >
+                            <VscBlank />
+                        </button>
+                        }
+
                         <button className='bg-gray-100 h-[41px]  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
                             <BsSearch />
                         </button>
-
+        
                         <img
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2WeO764gT6so9cBdAcrpeEP3_-1dztDw5qA&usqp=CAU'
                             alt="voiceassistant"
