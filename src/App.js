@@ -26,10 +26,10 @@ const appRouter = createBrowserRouter([
                path : "/watch",
                element:<WatchPage/>
             },
-            {
-               path: '/results',
-               element:<SearchResults/>
-            }
+            // {
+            //    path: '/results',
+            //    element:<SearchResults/>
+            // }
          ]
          }
       ]
