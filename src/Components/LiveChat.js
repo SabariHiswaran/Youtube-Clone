@@ -11,12 +11,11 @@ const LiveChat = () => {
 
     const dispatch = useDispatch()
 
-    console.log(selector)
-
     useEffect(() => {
 
-        setInterval(handleMessage, 2000)
+      const messageInterval =   setInterval(handleMessage, 2000)
 
+        return () => clearInterval(messageInterval)
     },[])
 
     const handleMessage = () => {
@@ -30,15 +29,14 @@ const LiveChat = () => {
 
     return (
         <>
-            <h1 className='text-bold'> Live Chat </h1>
-            <div className="flex-col-reverse">
-                <ChatMessage message={
-                    {
-                        profilename: "Sabari Hiswaran",
-                        comment: " THis is Youtube Live Chat"
-                    }
-                }
-                />
+            {/* <h1 className='text-bold'> Live Chat </h1> */}
+            <div className='w-[410px] h-[528px] ml-8 p-3 border border-gray-400 rounded-md bg-gray-100 overflow-y-scroll flex flex-col-reverse'>
+                {selector?.map((item,index) => {
+                    return (
+                        <ChatMessage message={ item } key={index}/>
+                    )
+                })}
+               
             </div>
         </>
     )
