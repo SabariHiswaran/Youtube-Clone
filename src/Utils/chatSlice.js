@@ -8,7 +8,12 @@ const chatSlice = createSlice({
     },
     reducers : {
         livechat : ( state , action ) => {
+                if(state.chatMessages.length >200){
+                    state.chatMessages.pop()
+                }
+                else {
                 state.chatMessages.unshift(action.payload)
+                }
         }
     }
 })
