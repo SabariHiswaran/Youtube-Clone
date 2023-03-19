@@ -54,8 +54,8 @@ const LiveChat = () => {
             <div className='h-[50px] w-[410px] ml-8 p-3 bg-white border border-gray-400 border-b-0 rounded-t-md'>
                 <h1 className='text-bold flex items-center'>
                     <span> Top Chat </span>
-                    <span className='text-xl mr-auto'> <RiArrowDropDownLine /></span>
-                    <span > <CiMenuKebab /> </span>
+                    <span className='text-xl mr-auto'> <RiArrowDropDownLine className='hover:cursor-pointer'/></span>
+                    <span > <CiMenuKebab className='hover:cursor-pointer'/> </span>
                 </h1>
             </div>
 
@@ -81,7 +81,7 @@ const LiveChat = () => {
                             />
                         </span>
                         <span className='pl-3'>
-                            <AiOutlineSend onClick={handleSubmit} className="hover:cursor-pointer"/>
+                            <AiOutlineSend onClick={liveChatMessage.length >0 && handleSubmit} className="hover:cursor-pointer"/>
                         </span>
                     </div>
                 

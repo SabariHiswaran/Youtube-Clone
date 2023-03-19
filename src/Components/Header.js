@@ -10,10 +10,11 @@ import { searchReducer } from '../Utils/searchSlice'
 
 import { BsSearch } from "react-icons/bs"
 import SearchSuggestion from './SearchSuggestion'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 import {RxCross2} from 'react-icons/rx'
 import {VscBlank} from 'react-icons/vsc'
+import { addSuggestion } from '../Utils/searchSuggestionSlice'
 
 const Header = () => {
 
@@ -21,19 +22,19 @@ const Header = () => {
 
     const [searchSuggestion, setSearchSuggestion] = useState([])
 
-    // const [searchHidden, setSearchHidden] = useState(true)
-
     const dispatch = useDispatch()
+
+    const searchHidden = useSelector((store) => store.searchSuggestionSlice.suggestion)
 
     const selector = useSelector((store) => store.searchReducer)
 
-    // const isVisible = searchHidden ? "invisible" : "visible"
+    const isVisible = searchHidden ? "invisible" : "visible"
 
     useEffect(() => {
 
         //implementing debouncing using setTimeOut with 200 ms and clearing the timer
 
-
+        
         const timer = setTimeout(() => {
             if (selector[searchQuery]) {
                 setSearchSuggestion(selector[searchQuery])
@@ -94,11 +95,12 @@ const Header = () => {
                         <input
                             type="text"
                             placeholder='Search'
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onChange={(e) =>{
+                                dispatch(addSuggestion())
+                                setSearchQuery(e.target.value)
+                            } }
                             className='border border-3 border-gray-300 border-r-0 w-[540px] h-[41px] p-1 rounded-l-xl focus:outline-none'
                             value={searchQuery}
-                        // onFocus={() => setSearchHidden(false)}
-                        // onBlur={() => setSearchHidden(true)}
                         />
 
                         {
@@ -129,29 +131,21 @@ const Header = () => {
                             className='h-5 ml-6'
                         />
                     </div>
-
-                    {/* className="bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md" */}
-              
-                    <div className="bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md">
+                        
+                    <div className={`bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md ${isVisible}`}>
                         <ul>
                             {searchSuggestion?.map((item,index) => {
                                 return (
                                    
                                          <SearchSuggestion item ={item} key={index} searchQuery = {searchQuery} setSearchQuery = {setSearchQuery} /> 
-                                        /* <li key={item} className='p-2 flex items-center hover:bg-gray-300 ' >
-                                            <BsSearch />
-
-                                            <span className='ml-4'>{item} </span>
-
-                                        </li> */
 
                                 )
                             })}
                         </ul>
                     </div>
-                  
+                   
                 </div>
-                     
+                      
                 <div className='flex items-center p-5'>
                     <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGtB6Mbi5pmn_6KGAGivVnAGRYw8lJIL_fU87hsY&s'
                         alt="add-video" className='h-8 mr-6 pt-1' />

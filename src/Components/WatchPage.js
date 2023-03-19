@@ -10,6 +10,7 @@ import CommentsContainer from './CommentsContainer'
 import ChannelDetails from './ChannelDetails'
 import Description from './Description'
 import LiveChat from './LiveChat'
+import { addSuggestion } from '../Utils/searchSuggestionSlice'
 
 const WatchPage = () => {
 
@@ -24,9 +25,10 @@ const WatchPage = () => {
   const [searchParams] = useSearchParams()
 
   useEffect(() => {
-
+    
     dispatch(closeMenu())
     fetchVideoDetails()
+    dispatch(addSuggestion())
   }, [])
 
   const fetchVideoDetails = async () => {

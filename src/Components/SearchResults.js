@@ -6,6 +6,9 @@ import SearchRelatedVideos from './SearchRelatedVideos'
 import {useSearchParams } from "react-router-dom"
 import { SEARCHED_VIDEO_LIST } from '../Utils/constants'
 
+import { removeSuggestion } from '../Utils/searchSuggestionSlice'
+import { useDispatch } from 'react-redux'
+
 const SearchResults = () => {
 
     const [searchParam] = useSearchParams()
@@ -14,9 +17,12 @@ const SearchResults = () => {
 
     const [videoList,setVideoList] = useState([])
 
+    const dispatch = useDispatch()
+
     useEffect(() => {
         setVideoList([])
         searchedVideoList() 
+        dispatch(removeSuggestion())
     } ,[searchQuery]) 
 
     const searchedVideoList = async () => {
