@@ -10,10 +10,10 @@ import { searchReducer } from '../Utils/searchSlice'
 
 import { BsSearch } from "react-icons/bs"
 import SearchSuggestion from './SearchSuggestion'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
 
-import {RxCross2} from 'react-icons/rx'
-import {VscBlank} from 'react-icons/vsc'
+import { RxCross2 } from 'react-icons/rx'
+import { VscBlank } from 'react-icons/vsc'
 import { addSuggestion } from '../Utils/searchSuggestionSlice'
 
 const Header = () => {
@@ -34,7 +34,7 @@ const Header = () => {
 
         //implementing debouncing using setTimeOut with 200 ms and clearing the timer
 
-        
+
         const timer = setTimeout(() => {
             if (selector[searchQuery]) {
                 setSearchSuggestion(selector[searchQuery])
@@ -66,7 +66,7 @@ const Header = () => {
     const clearSearch = () => {
         setSearchQuery("")
     }
-    
+
     return (
         <>
             <div className='flex h-20 justify-between '>
@@ -95,57 +95,67 @@ const Header = () => {
                         <input
                             type="text"
                             placeholder='Search'
-                            onChange={(e) =>{
+                            onChange={(e) => {
                                 dispatch(addSuggestion())
                                 setSearchQuery(e.target.value)
-                            } }
+                            }}
                             className='border border-3 border-gray-300 border-r-0 w-[540px] h-[41px] p-1 rounded-l-xl focus:outline-none'
                             value={searchQuery}
                         />
 
                         {
-                            searchQuery.length >=1 
-                            ? 
-                        <button
-                         className=" h-[41px]  border border-r-0 border-l-0 border-t-gray-300 border-b-gray-300 pl-3 w-[40px] "
-                         onClick={clearSearch}
-                         >
-                            <RxCross2 />
-                        </button>
-                        :
-                        <button
-                         className=" h-[41px]  border border-r-0 border-l-0 border-t-gray-300 border-b-gray-300 pl-3 w-[40px] "
-                        
-                         >
-                            <VscBlank />
-                        </button>
+                            searchQuery.length >= 1
+                                ?
+                                <button
+                                    className=" h-[41px]  border border-r-0 border-l-0 border-t-gray-300 border-b-gray-300 pl-3 w-[40px] "
+                                    onClick={clearSearch}
+                                >
+                                    <RxCross2 />
+                                </button>
+                                :
+                                <button
+                                    className=" h-[41px]  border border-r-0 border-l-0 border-t-gray-300 border-b-gray-300 pl-3 w-[40px] "
+
+                                >
+                                    <VscBlank />
+                                </button>
                         }
 
-                        <button className='bg-gray-100 h-[41px]  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
-                            <BsSearch />
-                        </button>
-        
+                        {searchQuery.length > 0
+                            ?
+                            <Link to={"/results?search_query=" + searchQuery} >
+                                <button className='bg-gray-100 h-[41px]  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
+                                    <BsSearch />
+                                </button>
+                            </Link>
+                            :
+                            <button className='bg-gray-100 h-[41px]  border border-3 border-gray-300 rounded-r-xl pr-4 pl-4 ' >
+                                <BsSearch />
+                            </button>
+
+                        }
+                        
                         <img
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2WeO764gT6so9cBdAcrpeEP3_-1dztDw5qA&usqp=CAU'
                             alt="voiceassistant"
                             className='h-5 ml-6'
                         />
                     </div>
-                        
+
                     <div className={`bg-gray-50 w-[580px] border rounded-lg border-gray-100 relative shadow-md ${isVisible}`}>
                         <ul>
-                            {searchSuggestion?.map((item,index) => {
+                            {searchSuggestion?.map((item, index) => {
                                 return (
-                                   
-                                         <SearchSuggestion item ={item} key={index} searchQuery = {searchQuery} setSearchQuery = {setSearchQuery} /> 
+
+                                    <SearchSuggestion item={item} key={index} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
                                 )
                             })}
                         </ul>
                     </div>
-                   
+
                 </div>
-                      
+
                 <div className='flex items-center p-5'>
                     <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGtB6Mbi5pmn_6KGAGivVnAGRYw8lJIL_fU87hsY&s'
                         alt="add-video" className='h-8 mr-6 pt-1' />

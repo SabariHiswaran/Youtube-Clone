@@ -52,12 +52,14 @@ const SearchResults = () => {
             {
                 videoList?.map(item => {
                     return(
+                        <Link  key={item?.snippet?.channelId} to={"/watch?v=" + item?.id}>
                         <SearchRelatedVideos 
                         thumbnail = {item?.snippet?.thumbnails?.medium?.url}
                         channelTitle = {item?.snippet?.channelTitle}
                         description = {item?.snippet?.description}
                         key={item?.snippet?.channelId}
                         />
+                        </Link>
                     )
                 })
           

@@ -10,7 +10,6 @@ import CommentsContainer from './CommentsContainer'
 import ChannelDetails from './ChannelDetails'
 import Description from './Description'
 import LiveChat from './LiveChat'
-import { addSuggestion } from '../Utils/searchSuggestionSlice'
 
 const WatchPage = () => {
 
@@ -28,7 +27,6 @@ const WatchPage = () => {
     
     dispatch(closeMenu())
     fetchVideoDetails()
-    dispatch(addSuggestion())
   }, [])
 
   const fetchVideoDetails = async () => {
@@ -56,7 +54,6 @@ const WatchPage = () => {
           </iframe>
         </div>
 
-        {/* <div className='w-[410px] h-[528px] ml-8 p-3 border border-gray-400 rounded-md bg-gray-100 overflow-y-scroll flex flex-col-reverse'> */}
         <div>
           <LiveChat />
         </div>
