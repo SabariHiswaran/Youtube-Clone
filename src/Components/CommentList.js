@@ -9,7 +9,7 @@ const CommentList = ( {commentsData}) => {
             return (
                 <div key={index} className="mt-4">
                 <Comment  commentData = {item} />
-                <div className='pl-5 border border-l-black'>
+                <div className='pl-5  w-[935px]'>
                  {item.reply && <CommentList commentsData={item.reply}/>}
                 </div>
                 </div>

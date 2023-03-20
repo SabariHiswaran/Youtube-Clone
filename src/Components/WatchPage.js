@@ -10,6 +10,7 @@ import CommentsContainer from './CommentsContainer'
 import ChannelDetails from './ChannelDetails'
 import Description from './Description'
 import LiveChat from './LiveChat'
+import RelatedVideosListSection from './RelatedVideosListSection'
 
 const WatchPage = () => {
 
@@ -66,9 +67,9 @@ const WatchPage = () => {
 
       </div>
       
-      <div>
+      <div className='flex w-[1385px]'>
 
-      <div>
+      <div className='w-[935px]'>
       <h1 className='mt-3 font-medium text-xl '> {watchVideoDetails[0]?.snippet?.title} </h1>
 
       <ChannelDetails
@@ -82,9 +83,8 @@ const WatchPage = () => {
 
       </div>
       
-      <div>
-
-          
+      <div className='ml-8 mt-4'>
+          <RelatedVideosListSection/>
 
       </div>
 
