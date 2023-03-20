@@ -40,8 +40,11 @@ const WatchPage = () => {
 
   return (
     <div className=' mt-4 w-[1385px]'>
+
       <div className='flex'>
+
         <div className='w-[935px]'>
+
           <iframe
             width="100%"
             height="528"
@@ -52,12 +55,20 @@ const WatchPage = () => {
             allowFullScreen>
 
           </iframe>
+
         </div>
 
         <div>
+
           <LiveChat />
+
         </div>
+
       </div>
+      
+      <div>
+
+      <div>
       <h1 className='mt-3 font-medium text-xl '> {watchVideoDetails[0]?.snippet?.title} </h1>
 
       <ChannelDetails
@@ -69,6 +80,15 @@ const WatchPage = () => {
 
       <CommentsContainer />
 
+      </div>
+      
+      <div>
+
+          
+
+      </div>
+
+      </div>
 
 
     </div>

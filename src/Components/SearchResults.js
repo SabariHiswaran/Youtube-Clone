@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 import {MdFilterAlt} from "react-icons/md"
 import SearchRelatedVideos from './SearchRelatedVideos'
 
-import {useSearchParams } from "react-router-dom"
+import {useSearchParams , Link } from "react-router-dom"
 import { SEARCHED_VIDEO_LIST } from '../Utils/constants'
 
 import { removeSuggestion } from '../Utils/searchSuggestionSlice'
@@ -52,12 +52,12 @@ const SearchResults = () => {
             {
                 videoList?.map(item => {
                     return(
-                        <Link  key={item?.snippet?.channelId} to={"/watch?v=" + item?.id}>
+                        <Link  key={item?.snippet?.channelId} to={"/watch?v=" + item?.id?.videoId}>
                         <SearchRelatedVideos 
                         thumbnail = {item?.snippet?.thumbnails?.medium?.url}
                         channelTitle = {item?.snippet?.channelTitle}
                         description = {item?.snippet?.description}
-                        key={item?.snippet?.channelId}
+                        // key={item?.snippet?.channelId}
                         />
                         </Link>
                     )

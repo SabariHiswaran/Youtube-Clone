@@ -81,7 +81,7 @@ const LiveChat = () => {
                             />
                         </span>
                         <span className='pl-3'>
-                            <AiOutlineSend onClick={liveChatMessage.length >0 && handleSubmit} className="hover:cursor-pointer"/>
+                            <AiOutlineSend onClick={liveChatMessage.length >0 ? handleSubmit : null} className="hover:cursor-pointer"/>
                         </span>
                     </div>
                 
