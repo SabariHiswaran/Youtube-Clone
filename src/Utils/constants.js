@@ -13,3 +13,6 @@ export const FETCH_VIDEO_API =
 
 
  export const SEARCHED_VIDEO_LIST = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&key=${GOOGLE_API_KEY}&q=`
+
+
+ export const SUGGESTED_VIDEO_LIST = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&type=video&key=${GOOGLE_API_KEY}&q=`
