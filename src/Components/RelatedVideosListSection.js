@@ -1,8 +1,17 @@
 import React from 'react'
+import RelatedVideo from './RelatedVideo'
 
 const RelatedVideosListSection = () => {
   return (
-    <div>ListSection</div>
+    <div>
+      <RelatedVideo/>
+      <RelatedVideo/>
+      <RelatedVideo/>
+      <RelatedVideo/>
+      <RelatedVideo/>
+      <RelatedVideo/>
+      <RelatedVideo/>
+    </div>
   )
 }
 
