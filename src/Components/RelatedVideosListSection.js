@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { SUGGESTED_VIDEO_LIST } from '../Utils/constants';
 import RelatedVideo from './RelatedVideo'
+import {Link} from "react-router-dom"
 
 const RelatedVideosListSection = ({Title}) => {
 
+  // const suggestionTitle = Title?.replace(
+  //   /[^a-zA-z0-9 ]/g,
+  //   ""
+  // );
+  const suggestionTitle = Title?.split(' ').slice(0,3).join('+');
 
-  const suggestionTitle = Title?.split(' ').slice(0,1);
-
-  console.log(suggestionTitle)
+ console.log(suggestionTitle)
   const [suggestedVideos,setSuggestedVideos] = useState([])
   
   
   useEffect(() => {
     fetchSuggestedVideoDetails()
-  }, [])
+   
+  }, [Title])
 
 
   const fetchSuggestedVideoDetails = async () => {
@@ -23,17 +28,25 @@ const RelatedVideosListSection = ({Title}) => {
     setSuggestedVideos(json.items)
   }
 
-  console.log(suggestedVideos)
+   console.log(suggestedVideos)
 
   return (
     <div>
-      <RelatedVideo/>
-      <RelatedVideo/>
-      <RelatedVideo/>
-      <RelatedVideo/>
-      <RelatedVideo/>
-      <RelatedVideo/>
-      <RelatedVideo/>
+
+      {suggestedVideos.map(item => {
+        return(
+          <Link key={item?.id?.videoId}>
+          <RelatedVideo
+          thumbnail = {item?.snippet?.thumbnails?.medium?.url}
+          title = {item?.snippet?.title}
+          channelTitle = {item?.snippet?.channelTitle}
+          />
+          </Link>
+        )
+      })}
+
+     
+   
     </div>
   )
 }
