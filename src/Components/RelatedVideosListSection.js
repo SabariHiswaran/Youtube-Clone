@@ -4,13 +4,13 @@ import RelatedVideo from './RelatedVideo'
 import {Link} from "react-router-dom"
 import RelatedVideoShimmer from './RelatedVideoShimmer';
 
-const RelatedVideosListSection = ({Title}) => {
+const RelatedVideosListSection = ({watchVideoDetails}) => {
 
   // const suggestionTitle = Title?.replace(
   //   /[^a-zA-z0-9 ]/g,
   //   ""
   // );
-  const suggestionTitle = Title?.split(' ').slice(0,3).join('+');
+  const suggestionTitle = (watchVideoDetails?.snippet?.Title).split(' ').slice(0,3).join('+');
 
  console.log(suggestionTitle)
   const [suggestedVideos,setSuggestedVideos] = useState([])
@@ -19,7 +19,7 @@ const RelatedVideosListSection = ({Title}) => {
   useEffect(() => {
     fetchSuggestedVideoDetails()
    
-  }, [Title])
+  }, [])
 
 
   const fetchSuggestedVideoDetails = async () => {
@@ -31,7 +31,7 @@ const RelatedVideosListSection = ({Title}) => {
 
    console.log(suggestedVideos)
 
-  return Title ? <RelatedVideoShimmer/> : (
+  return !suggestedVideos ? null : suggestedVideos?.length ===0 ? null : (
     <div>
 
       {suggestedVideos.map(item => {

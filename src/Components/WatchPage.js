@@ -84,7 +84,7 @@ const WatchPage = () => {
       </div>
       
       <div className='ml-8 mt-4'>
-          <RelatedVideosListSection Title={watchVideoDetails[0]?.snippet?.title}/>
+          <RelatedVideosListSection watchVideoDetails={watchVideoDetails[0]}/>
 
       </div>
 
