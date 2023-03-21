@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { SUGGESTED_VIDEO_LIST } from '../Utils/constants';
 import RelatedVideo from './RelatedVideo'
 import {Link} from "react-router-dom"
+import RelatedVideoShimmer from './RelatedVideoShimmer';
 
 const RelatedVideosListSection = ({Title}) => {
 
@@ -30,7 +31,7 @@ const RelatedVideosListSection = ({Title}) => {
 
    console.log(suggestedVideos)
 
-  return (
+  return Title ? <RelatedVideoShimmer/> : (
     <div>
 
       {suggestedVideos.map(item => {
