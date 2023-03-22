@@ -9,6 +9,13 @@ const VideoCard = ({ videoinfo }) => {
 
   const { viewCount } = statistics
 
+  const realviews = (view) => {
+    return view < 1000
+      ? view
+      : view > 1000 && view < 1000000
+      ? (view / 1000).toFixed(0) + "K"
+      : (view / 1000000).toFixed(1) + "M";
+  };
 
   return (
 
@@ -21,7 +28,7 @@ const VideoCard = ({ videoinfo }) => {
         <div className='w-[320px] ml-3'>
           <h3 className='font-bold text-sm'>{title} </h3>
           <p> {channelTitle}</p>
-          <p> {viewCount} views</p>
+          <p> {realviews(viewCount)} views</p>
         </div>
       </div>
       </div>
