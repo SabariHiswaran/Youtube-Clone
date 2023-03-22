@@ -1,11 +1,15 @@
 
 import React from 'react'
 
+import TimeAgo from 'react-timeago'
+
 const VideoCard = ({ videoinfo }) => {
+
+  console.log(videoinfo)
 
   const { snippet, statistics } = videoinfo
 
-  const { thumbnails, title, channelTitle } = snippet
+  const { thumbnails, title, channelTitle , publishedAt } = snippet
 
   const { viewCount } = statistics
 
@@ -28,7 +32,11 @@ const VideoCard = ({ videoinfo }) => {
         <div className='w-[320px] ml-3'>
           <h3 className='font-bold text-sm'>{title} </h3>
           <p> {channelTitle}</p>
-          <p> {realviews(viewCount)} views</p>
+          <div className='flex items-center'>
+            <span> {realviews(viewCount)} views</span>
+            <span className='ml-2'>  &#8729; </span>
+            <span  className='ml-2'> <TimeAgo date={publishedAt} /> </span>
+             </div>
         </div>
       </div>
       </div>
