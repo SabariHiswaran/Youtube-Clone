@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { SUGGESTED_VIDEO_LIST } from '../Utils/constants';
 import RelatedVideo from './RelatedVideo'
-import {Link} from "react-router-dom"
-import RelatedVideoShimmer from './RelatedVideoShimmer';
+import { Link } from "react-router-dom"
 
-const RelatedVideosListSection = ({watchVideoDetails}) => {
+const RelatedVideosListSection = ({ watchVideoDetails }) => {
 
-  // const suggestionTitle = Title?.replace(
-  //   /[^a-zA-z0-9 ]/g,
-  //   ""
-  // );
-  const suggestionTitle = (watchVideoDetails?.snippet?.Title).split(' ').slice(0,3).join('+');
 
- console.log(suggestionTitle)
-  const [suggestedVideos,setSuggestedVideos] = useState([])
-  
-  
+  const suggestionTitle = typeof (watchVideoDetails?.snippet?.title) !== 'undefined' && watchVideoDetails?.snippet?.title?.split(' ').slice(0, 3).join('+');
+
+  const [suggestedVideos, setSuggestedVideos] = useState([])
+
+
   useEffect(() => {
     fetchSuggestedVideoDetails()
-   
+
   }, [])
 
 
@@ -29,25 +24,24 @@ const RelatedVideosListSection = ({watchVideoDetails}) => {
     setSuggestedVideos(json.items)
   }
 
-   console.log(suggestedVideos)
 
-  return !suggestedVideos ? null : suggestedVideos?.length ===0 ? null : (
+  return !suggestedVideos ? null : suggestedVideos.length === 0 ? null : (
     <div>
 
-      {suggestedVideos.map(item => {
-        return(
-          <Link key={item?.id?.videoId}>
-          <RelatedVideo
-          thumbnail = {item?.snippet?.thumbnails?.medium?.url}
-          title = {item?.snippet?.title}
-          channelTitle = {item?.snippet?.channelTitle}
-          />
+      {suggestedVideos?.map(item => {
+        return (
+          <Link key={item?.id?.videoId} to={"/watch?v=" + item?.id?.videoId}>
+            <RelatedVideo
+              thumbnail={item?.snippet?.thumbnails?.medium?.url}
+              title={item?.snippet?.title}
+              channelTitle={item?.snippet?.channelTitle}
+            />
           </Link>
         )
       })}
 
-     
-   
+
+
     </div>
   )
 }

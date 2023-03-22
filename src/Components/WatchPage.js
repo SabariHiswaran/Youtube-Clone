@@ -36,7 +36,7 @@ const WatchPage = () => {
 
     setWatchVideoDetails(json.items)
   }
-  console.log(watchVideoDetails)
+ 
 
 
   return (
@@ -84,7 +84,9 @@ const WatchPage = () => {
       </div>
       
       <div className='ml-8 mt-4'>
-          <RelatedVideosListSection watchVideoDetails={watchVideoDetails[0]}/>
+         {
+          watchVideoDetails[0] && <RelatedVideosListSection watchVideoDetails={watchVideoDetails[0]}/>
+         } 
 
       </div>
 
