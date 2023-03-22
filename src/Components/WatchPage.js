@@ -11,6 +11,8 @@ import ChannelDetails from './ChannelDetails'
 import Description from './Description'
 import LiveChat from './LiveChat'
 import RelatedVideosListSection from './RelatedVideosListSection'
+import RelatedVideoShimmer from './RelatedVideoShimmer'
+
 
 const WatchPage = () => {
 
@@ -85,7 +87,7 @@ const WatchPage = () => {
       
       <div className='ml-8 mt-4'>
          {
-          watchVideoDetails[0] && <RelatedVideosListSection watchVideoDetails={watchVideoDetails[0]}/>
+          !watchVideoDetails[0] ?<RelatedVideoShimmer/>: <RelatedVideosListSection watchVideoDetails={watchVideoDetails[0]}/>
          } 
 
       </div>
