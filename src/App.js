@@ -22,10 +22,10 @@ const appRouter = createBrowserRouter([
                path:"/",
                element: <Videos />
             },
-            {
-               path : "/watch",
-               element:<WatchPage/>
-            },
+            // {
+            //    path : "/watch",
+            //    element:<WatchPage/>
+            // },
             // {
             //    path: '/results',
             //    element:<SearchResults/>
