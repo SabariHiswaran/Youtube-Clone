@@ -2,7 +2,7 @@ import React, { useEffect ,useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { livechat } from '../Utils/chatSlice'
 import ChatMessage from './ChatMessage'
-import { generate, makeid } from './helper'
+import { generate, makeid } from '../Utils/helper'
 
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { CiMenuKebab } from 'react-icons/ci'
@@ -26,6 +26,8 @@ const LiveChat = () => {
     }, [])
 
     const handleMessage = () => {
+
+        console.log("api polling")
         dispatch(livechat(
             {
                 profilename: generate(),

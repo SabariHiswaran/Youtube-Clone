@@ -14,7 +14,7 @@ const VideosContainer = () => {
     }, [])
 
     const fetchVideoData = async () => {
-
+        console.log("most popular video api called")
         const videoData = await fetch(FETCH_VIDEO_API)
 
         const data = await videoData.json()

@@ -26,6 +26,9 @@ const SearchResults = () => {
     } ,[searchQuery]) 
 
     const searchedVideoList = async () => {
+
+        console.log("search api called")
+
         const videoList =await fetch(SEARCHED_VIDEO_LIST + searchQuery)
 
         const data = await videoList.json()
@@ -33,7 +36,6 @@ const SearchResults = () => {
         setVideoList(data.items)
     }
 
-    console.log(videoList)
 
   return (
    
