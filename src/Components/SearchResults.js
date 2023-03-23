@@ -35,8 +35,7 @@ const SearchResults = () => {
 
         setVideoList(data.items)
     }
-
-
+   
   return (
    
     <div className='p-5 pl-10 w-[1100px]'>
@@ -57,10 +56,11 @@ const SearchResults = () => {
                         <Link  key={item?.snippet?.channelId} to={"/watch?v=" + item?.id?.videoId}>
                         <SearchRelatedVideos 
                         thumbnail = {item?.snippet?.thumbnails?.medium?.url}
+                        title ={item?.snippet?.title}
                         channelTitle = {item?.snippet?.channelTitle}
                         description = {item?.snippet?.description}
                         publishedAt = {item?.snippet?.publishedAt}
-                        viewCount = {item?.statistics?.viewCount}
+                       
                         />
                         </Link>
                     )

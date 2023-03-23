@@ -37,6 +37,7 @@ const RelatedVideosListSection = ({ watchVideoDetails }) => {
               thumbnail={item?.snippet?.thumbnails?.medium?.url}
               title={item?.snippet?.title}
               channelTitle={item?.snippet?.channelTitle}
+              publishedAt = {item?.snippet?.publishedAt}
             />
           </Link>
         )

@@ -42,7 +42,6 @@ const WatchPage = () => {
   }
  
 
-
   return (
     <div className=' mt-4 w-[1385px]'>
 
@@ -79,6 +78,8 @@ const WatchPage = () => {
       <ChannelDetails
         channelTitle={watchVideoDetails[0]?.snippet?.channelTitle}
         channelImage={watchVideoDetails[0]?.snippet?.thumbnails?.default?.url}
+        viewCount = {watchVideoDetails[0]?.statistics?.viewCount}
+        likeCount = {watchVideoDetails[0]?.statistics?.likeCount}
       />
 
       <Description description={watchVideoDetails[0]?.snippet?.description} />
