@@ -24,7 +24,7 @@ const VideosContainer = () => {
     }
    
     return apiData.length ===0 ? <VideoShimmer/> : (
-        <div className='flex flex-wrap ml-10'>
+        <div className='flex flex-wrap ml-10 mt-2 h-[82vh] overflow-auto scrollbar-thin scrollbar-thumb-[#ff0000] scrollbar-track-gray-100 scrollbar-thumb-rounded-md'>
             {apiData?.map(item => {
 
                 return (
