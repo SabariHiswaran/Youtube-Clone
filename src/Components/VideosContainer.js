@@ -14,7 +14,7 @@ const VideosContainer = () => {
     }, [])
 
     const fetchVideoData = async () => {
-        console.log("most popular video api called")
+    
         const videoData = await fetch(FETCH_VIDEO_API)
 
         const data = await videoData.json()
@@ -22,7 +22,7 @@ const VideosContainer = () => {
         setApiData(data.items)
 
     }
-    // console.log(apiData)
+   
     return apiData.length ===0 ? <VideoShimmer/> : (
         <div className='flex flex-wrap ml-10'>
             {apiData?.map(item => {

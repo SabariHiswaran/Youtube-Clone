@@ -50,7 +50,7 @@ const Header = () => {
     }, [searchQuery])
 
     const getSearchSuggestion = async () => {
-        console.log("search suggestion api called")
+     
         const data = await fetch(SEARCH_SUGGESTION_API + searchQuery)
         const json = await data.json()
         setSearchSuggestion(json[1])

@@ -27,7 +27,7 @@ const SearchResults = () => {
 
     const searchedVideoList = async () => {
 
-        console.log("search api called")
+    
 
         const videoList =await fetch(SEARCHED_VIDEO_LIST + searchQuery)
 
@@ -59,7 +59,8 @@ const SearchResults = () => {
                         thumbnail = {item?.snippet?.thumbnails?.medium?.url}
                         channelTitle = {item?.snippet?.channelTitle}
                         description = {item?.snippet?.description}
-                        // key={item?.snippet?.channelId}
+                        publishedAt = {item?.snippet?.publishedAt}
+                        viewCount = {item?.statistics?.viewCount}
                         />
                         </Link>
                     )

@@ -32,11 +32,9 @@ const WatchPage = () => {
     fetchVideoDetails()
   }, [searchParams])
 
-  console.log(watchVideoDetails)
 
   const fetchVideoDetails = async () => {
 
-    console.log("individual api called")
     const data = await fetch(INDIVIDUAL_VIDEO_API + searchParams.get("v") + "&key=" + GOOGLE_API_KEY)
     const json = await data.json()
 

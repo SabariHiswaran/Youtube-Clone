@@ -19,7 +19,6 @@ const RelatedVideosListSection = ({ watchVideoDetails }) => {
 
   const fetchSuggestedVideoDetails = async () => {
 
-    console.log("related video list api called")
 
     const data = await fetch(SUGGESTED_VIDEO_LIST + suggestionTitle)
     const json = await data.json()

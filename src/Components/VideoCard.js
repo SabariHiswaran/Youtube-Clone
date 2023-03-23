@@ -5,7 +5,6 @@ import TimeAgo from 'react-timeago'
 
 const VideoCard = ({ videoinfo }) => {
 
-  console.log(videoinfo)
 
   const { snippet, statistics } = videoinfo
 

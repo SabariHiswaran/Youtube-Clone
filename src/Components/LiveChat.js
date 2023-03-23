@@ -27,7 +27,6 @@ const LiveChat = () => {
 
     const handleMessage = () => {
 
-        console.log("api polling")
         dispatch(livechat(
             {
                 profilename: generate(),
