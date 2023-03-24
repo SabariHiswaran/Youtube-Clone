@@ -30,7 +30,7 @@ const LiveChat = () => {
         dispatch(livechat(
             {
                 profilename: generate(),
-                comment: makeid(10)
+                comment: makeid()
             }
         ))
     }

@@ -54,7 +54,7 @@ const characters = [
 
 export function makeid(){
   const charactersLength = characters.length;
-  return characters.charAt(Math.floor(Math.random() * charactersLength));
+  return characters[(Math.floor(Math.random() * charactersLength))];
 }
 
 
