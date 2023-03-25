@@ -10,7 +10,7 @@ const CommentList = ( {commentsData}) => {
                 <div key={item.id} className="mt-4">
                 <Comment  commentData = {item} />
                 <div className='pl-5  w-[935px]'>
-                 {item.reply && <CommentList commentsData={item.reply}/>}
+                 {item.replies && <CommentList commentsData={item.replies}/>}
                 </div>
                 </div>
             )
