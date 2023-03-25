@@ -9,8 +9,10 @@ const CommentList = ( {commentsData}) => {
             return (
                 <div key={item.id} className="mt-4">
                 <Comment  commentData = {item} />
-                <div className='pl-5  w-[935px]'>
+                <div>
+                <div className='pl-5 ml-14  w-[935px] border-0 border-l-2 border-l-red-600'>
                  {item.replies && <CommentList commentsData={item.replies}/>}
+                </div>
                 </div>
                 </div>
             )
