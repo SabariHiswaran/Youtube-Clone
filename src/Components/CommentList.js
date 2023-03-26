@@ -1,6 +1,8 @@
 import React from 'react'
 import Comment from './Comment'
 
+import {MdArrowDropDown} from 'react-icons/md'
+
 const CommentList = ( {commentsData}) => {
    
   return( 
@@ -12,8 +14,18 @@ const CommentList = ( {commentsData}) => {
                 {item.replies.length ===0 ?
                   ""
                   :
-                  <div className='ml-14 w-[935px] h-[30px] border-0 border-l-2 border-l-gray-600'>
-                    Replies
+                  <div className='ml-14 w-[935px] h-[10px] '>
+                    <button className='text-blue flex items-center '>
+                      <span className='text-[#065fd4] font-bold'>
+                       <MdArrowDropDown/>  
+                       </span>
+                       <span className='text-[#065fd4] ml-2 font-bold'>
+                        {item.replies.length}
+                       </span>
+                       <span className='text-[#065fd4] ml-1 font-bold'>
+                       Replies
+                       </span>
+                       </button>
                   </div>
                   
                 }
