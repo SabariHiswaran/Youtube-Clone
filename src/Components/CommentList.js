@@ -15,11 +15,11 @@ const CommentList = ( {commentsData}) => {
                   ""
                   :
                   <div className='ml-14 w-[935px] h-[10px] '>
-                    <button className='text-blue flex items-center '>
+                    <button className='text-blue flex items-center hover:bg-blue-100 hover:rounded-md pr-2 pl-1'>
                       <span className='text-[#065fd4] font-bold'>
                        <MdArrowDropDown/>  
                        </span>
-                       <span className='text-[#065fd4] ml-2 font-bold'>
+                       <span className='text-[#065fd4] ml-1 font-bold'>
                         {item.replies.length}
                        </span>
                        <span className='text-[#065fd4] ml-1 font-bold'>
