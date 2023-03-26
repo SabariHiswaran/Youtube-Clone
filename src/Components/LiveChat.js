@@ -25,6 +25,7 @@ const LiveChat = () => {
         return () => clearInterval(messageInterval)
     }, [])
 
+    console.log("livechat rendered")
     const handleMessage = () => {
 
         dispatch(livechat(
