@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { closeMenu } from '../Utils/menuSlice'
 
 import { useSearchParams } from 'react-router-dom'
-import { GOOGLE_API_KEY, INDIVIDUAL_VIDEO_API } from '../Utils/constants'
+import { INDIVIDUAL_VIDEO_API } from '../Utils/constants'
 
 import CommentsContainer from './CommentsContainer'
 import ChannelDetails from './ChannelDetails'
@@ -35,7 +35,7 @@ const WatchPage = () => {
 
   const fetchVideoDetails = async () => {
 
-    const data = await fetch(INDIVIDUAL_VIDEO_API + searchParams.get("v") + "&key=" + GOOGLE_API_KEY)
+    const data = await fetch(INDIVIDUAL_VIDEO_API + searchParams.get("v") )
     const json = await data.json()
 
     setWatchVideoDetails(json.items)
