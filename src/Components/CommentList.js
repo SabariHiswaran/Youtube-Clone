@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Comment from './Comment'
 
 import {  MdArrowDropUp } from 'react-icons/md'

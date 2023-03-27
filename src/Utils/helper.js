@@ -32,24 +32,24 @@ export function generate() {
 };
 
 const characters = [
-"You won't be able to do it.",
-  "Mary went over to the United States.",
+"You won't be able to do it. 😄",
+  "Mary went over to the United States.🚀 🚀",
   "It has cooled off.",
-  "What subjects do you like the best?",
-  "Are you here for work?",
+  "What subjects do you like the best? 🤔",
+  "Are you here for work? 🤔",
   "She hated him so much.",
   "Can I call you right back?",
   "I think it's OK. I also have two credit cards.",
   "Should I reply to his letter?",
-  "That's a bright idea.",
-  "Let me see that.",
-  "That's too bad.",
+  "That's a bright idea.🚀",
+  "Let me see that.  😄",
+  "That's too bad. 🤔",
   "I expect that he will help us.",
-  "I tried that also and it didn't work.",
-  "I am not always at home on Sundays.",
+  "I tried that also and it didn't work. 💁‍♂️",
+  "I am not always at home on Sundays. ",
   "Hunting is prohibited in national parks.",
-  "I wonder if they'll get divorced.",
-  "They started working right away.",
+  "I wonder if they'll get divorced.  😄",
+  "They started working right away.🚀",
 ]
 
 export function makeid(){
