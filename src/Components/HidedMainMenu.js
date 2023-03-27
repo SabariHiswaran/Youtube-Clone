@@ -17,7 +17,7 @@ const HidedMainMenu = () => {
 
             <ul className='flex flex-col justify-between h-56'>
                 <Link to="/">
-                <li className='flex flex-col  p-1  hover:bg-gray-300 hover:rounded-md'>
+                <li className='flex flex-col  p-1'>
 
                     <span className='flex justify-start w-12'> <FaHome /></span>
                     <span className='flex justify-start  w-12 text-sm'> Home </span>
@@ -37,7 +37,7 @@ const HidedMainMenu = () => {
                 <li className='flex flex-col p-1'>
 
                     <span className='flex justify-start w-12'> <MdSubscriptions /></span>
-                    <span className='flex justify-start w-12  text-sm'> Subscriptions </span>
+                    <span className='flex justify-start w-12  text-sm'> Library </span>
 
                 </li>
 

@@ -18,7 +18,7 @@ const menuslice = createSlice({
         closeMenu: (state) => {
             return {
                 menustate : false,
-                watchPageMenuState : false
+                watchPageMenuState : true
             }
         }
     } 
