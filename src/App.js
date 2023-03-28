@@ -8,7 +8,7 @@ import store from './Utils/store';
 import Videos from './Components/Videos';
 // import WatchPage from './Components/WatchPage';
 // import SearchResults from './Components/SearchResults';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 const WatchPage = lazy(() => import ('./Components/WatchPage'))
 const SearchResults = lazy(() => import ("./Components/SearchResults"))
@@ -28,12 +28,20 @@ const appRouter = createBrowserRouter([
             },
             {
                path : "/watch",
-               element:<WatchPage/>
+               element:(
+               <Suspense fallback={<div className='w-[120px] h-[120px] border border-4 border-black border-x-0 rounded-[50%] animate-spin'></div>}>
+               <WatchPage/>
+               </Suspense>
+               )
             },
             {
                path: '/results',
-               element:<SearchResults/>
-            }
+               element:
+               (
+                  <Suspense fallback={<h1> Loading... </h1>}>
+                  <SearchResults/>
+                  </Suspense>
+               )}
          ]
          }
       ]
