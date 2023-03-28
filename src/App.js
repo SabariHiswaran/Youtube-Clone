@@ -6,8 +6,6 @@ import Body from './Components/Body';
 import Header from './Components/Header';
 import store from './Utils/store';
 import Videos from './Components/Videos';
-// import WatchPage from './Components/WatchPage';
-// import SearchResults from './Components/SearchResults';
 import { lazy, Suspense } from 'react';
 import Spinner from './Components/Spinner';
 
@@ -39,7 +37,7 @@ const appRouter = createBrowserRouter([
                path: '/results',
                element:
                (
-                  <Suspense fallback={<h1> Loading... </h1>}>
+                  <Suspense fallback={<Spinner/>}>
                   <SearchResults/>
                   </Suspense>
                )}
