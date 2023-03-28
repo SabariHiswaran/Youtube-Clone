@@ -1,0 +1,6 @@
+
+/api/* http://suggestqueries.google.com/complete/:splat 200!
+
+<!-- 
+To refer Mixed Content issue:
+https://abinjohn.in/mixed-content-netlify -->
