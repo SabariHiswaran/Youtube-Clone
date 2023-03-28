@@ -54,7 +54,6 @@ function App() {
   return (
      <Provider store={store}>
 
-        {/* <Header/> */}
         <RouterProvider router = {appRouter}/>
         
      </Provider>
