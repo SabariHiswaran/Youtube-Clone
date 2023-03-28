@@ -6,8 +6,12 @@ import Body from './Components/Body';
 import Header from './Components/Header';
 import store from './Utils/store';
 import Videos from './Components/Videos';
-import WatchPage from './Components/WatchPage';
-import SearchResults from './Components/SearchResults';
+// import WatchPage from './Components/WatchPage';
+// import SearchResults from './Components/SearchResults';
+import { lazy } from 'react';
+
+const WatchPage = lazy(() => import ('./Components/WatchPage'))
+const SearchResults = lazy(() => import ("./Components/SearchResults"))
 
 const appRouter = createBrowserRouter([
    {
